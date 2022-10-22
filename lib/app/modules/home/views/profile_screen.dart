@@ -20,10 +20,10 @@ class ProfileScreen extends StatelessWidget {
               child: UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: AppColor.logoColor),
                 accountName: const Text(
-                  "Abhishek Mishra",
+                  "ABC",
                   style: TextStyle(fontSize: 18),
                 ),
-                accountEmail: const Text("abhishekm977@gmail.com"),
+                accountEmail: const Text("abc@gmail.com"),
                 currentAccountPictureSize: const Size.square(50),
                 currentAccountPicture: CircleAvatar(
                   backgroundColor: AppColor.slashColor,
@@ -88,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ],
         ),
-      ), //Deawer
+      ), 
     
              
     );

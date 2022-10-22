@@ -7,4 +7,6 @@ class AppColor {
   static var black = Colors.black;
   static var white = Colors.white;
   static var grey = Colors.grey;
+  static var bg= const Color(0xFFE1F8FE);
+  static var common = const Color(0xFF01D1FF);
 }

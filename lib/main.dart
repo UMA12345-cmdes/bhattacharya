@@ -1,3 +1,4 @@
+import 'package:bhattacharya/app/modules/network/bindings/network_binding.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ void main() {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
+      initialBinding: NetworkBinding(),
     ),
   );
 }
