@@ -1,5 +1,6 @@
 import 'package:bhattacharya/app/data/app_color.dart';
 import 'package:bhattacharya/app/data/app_image.dart';
+import 'package:bhattacharya/app/modules/home/utilities/dimensions.dart';
 import 'package:bhattacharya/app/modules/home/views/profile_screen.dart';
 import 'package:bhattacharya/app/modules/network/controller/network_controller.dart';
 import 'package:flutter/material.dart';
@@ -32,41 +33,88 @@ class HomeView extends GetView<HomeController> {
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //     const Text('36279884'),
-              //      const Divider(
-              //   color: Colors.grey,
-              //   thickness: 1,
-              // ),
-              //       const Text('Welcome, abc '),
-              //      const Divider(
-              //   thickness: 1,
-              //   color: Colors.grey,
-              // ),
-              //       const Text('Re-Purchase Month : October'),
-              //      const Divider(
-              //   thickness: 1,
-              //   color: Colors.grey,
-              // ),
-              //       const Text('Re-Purchase Amount : 0'),
-              //      const Divider(
-              //   thickness: 1,
-              //   color: Colors.grey,
-              // ),
-              //       const Text('Re-Purchase P.V. : 0'),
-              //    const SizedBox(height: 100 * 4,),
+              
+               Container(
+                height: 40,
+                alignment: Alignment.center,
+                width: Dimensions.screenWidth,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 155, 81, 230),
+                  borderRadius: BorderRadius.circular(4),
+                  // border: Border.all(width: 1,)
+                ),
+                          child: Text('Welcome to ABC',  style: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold), ),
+                        ),
+                        const SizedBox(height: 2,),
+                        
+              Banner(
+                message: 'message ',
+                color: AppColor.logoColor,
+                location: BannerLocation.bottomStart,
+                child: Container(
+                  color: AppColor.bg,
+                  width: Dimensions.screenWidth,
+                  height: 200,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                    child: Column(
+                      children: <Widget>[
+
+                       
+                         Text(
+                          'XYZ',
+                          style: TextStyle(
+                              color: AppColor.common,
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold), //TextStyle
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ), //SizedBox
+                         Text(
+                          'New User here  !!',
+                          style: TextStyle(
+                              color: AppColor.common,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold), //TextStyle
+                        ), //Text
+                        const SizedBox(height: 20),
+                      ], //<Widget>[]
+                    ), //Column
+                  ), //Padding
+                ), //Container
+              ), 
               _buildKyc(),
-              Center(
-                child: Obx(
-                  () => Text(
-                      _networkController.connectionStatus.value == 0
-                          ? ' No Internet Connection'
-                          : ' ',
-                      style: const TextStyle(color: Colors.red, fontSize: 15)),
+              _buildContent(
+                'Platform News',
+                'Rohan Shekar',
+                'bina takkar',
+                'sumina khan',
+              ),
+    const SizedBox(height: 10,),
+     _buildContent(
+      'New Recommedations' ,
+                'bhj thakur',
+                'nima kakkar',
+                'sabina khan',
+                
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Obx(
+                    () => Text(
+                        _networkController.connectionStatus.value == 0
+                            ? ' No Internet Connection'
+                            : '',
+                        style: const TextStyle(color: Colors.red, fontSize: 15)),
+                  ),
                 ),
               ),
             ],
@@ -95,9 +143,10 @@ class HomeView extends GetView<HomeController> {
               ), //Bor
             ),
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: const[
                   Text(
                     'Wallet Balance ',
@@ -170,6 +219,45 @@ class HomeView extends GetView<HomeController> {
               )
             ],
           )
+        ],
+      ),
+    );
+  }
+  _buildContent(String name,String t1, String t2, String t3,  ){
+    return Container(
+      height: 150,
+      width: Dimensions.screenWidth,
+      decoration: BoxDecoration(
+        color: AppColor.grey,
+        border: Border.all(width: 1, color: Colors.black26),
+        borderRadius: BorderRadius.circular(7)
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(name,  style: const TextStyle(
+                              // color: AppColor.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 5,),
+          Text(t1,  style: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w300
+                            )),
+          // Divider(color: AppColor.white, thickness: 1.3,),
+          Text(t2, style: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w300
+                            )),
+          Text(t3, style: TextStyle(
+                              color: AppColor.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w300
+                            )),
+         
+          
         ],
       ),
     );

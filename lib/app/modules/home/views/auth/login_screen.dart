@@ -2,6 +2,7 @@ import 'package:bhattacharya/app/data/app_image.dart';
 import 'package:bhattacharya/app/modules/home/utilities/dimensions.dart';
 import 'package:bhattacharya/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import '../../../../data/app_color.dart';
@@ -43,7 +44,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
             Container(
               height: Dimensions.screenHeight / 2.3,
@@ -60,7 +61,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 50,
+                    height: 40,
                   ),
                   Text(
                     'Welcome',
@@ -244,6 +245,14 @@ class LoginScreen extends StatelessWidget {
                                         refralCode.text;
                                         passwordController.text;
                                       }
+                                      Fluttertoast.showToast(
+                                        webShowClose: true,
+                                        gravity: ToastGravity.CENTER_RIGHT,
+                                        backgroundColor: AppColor.common,
+                                        toastLength: Toast.LENGTH_LONG,
+                                        fontSize: 18,
+                                        timeInSecForIosWeb: 10,
+                                        msg: 'Successfully Login');
                                       Navigator.of(context).pushReplacement(
                                           MaterialPageRoute(
                                               builder: (context) =>
@@ -261,13 +270,15 @@ class LoginScreen extends StatelessWidget {
                               'Get Started',
                               style: TextStyle(fontSize: 20),
                             ),
-                            Icon(Icons.arrow_forward)
+                            Icon(Icons.arrow_forward),
                           ],
                         )),
-                  )
+                        
+                  ),
                 ],
               ),
             ),
+
           ],
         )),
       ),
